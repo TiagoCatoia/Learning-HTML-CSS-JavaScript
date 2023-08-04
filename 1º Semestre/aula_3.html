@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Listas e tabelas</title>
+        <meta charset="utf-8">
+        <style>
+            table{
+                border-collapse: collapse;
+            }
+            table,th,td{
+                border: 1px solid black;
+            }
+            
+        </style>
+
+    </head>
+    <body>
+       <table>
+            <thead>
+                <tr>
+                    <th>RA</th>
+                    <th>Nome</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Maria</td>
+                    <td>10</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>José</td>
+                    <td>9.5</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Sérgio</td>
+                    <td>1.0</td>
+                </tr>               
+            </tbody>
+       </table>
+
+       <h1>Outra tabela</h1>
+       <table style="border: 3px solid blue">
+        <thead>
+            <tr>
+                <th>RA</th>
+                <th>Nome</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Maria</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>José</td>
+                <td>9.5</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Sérgio</td>
+                <td>1.0</td>
+            </tr>                          
+        </tbody>
+    </table>
+    <h1>Tabela 3</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Disciplina</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td rowspan="3">José</td>
+                <td>IWEB</td>
+                <td>7.0</td>
+            </tr>
+            <tr>
+                <td>APR1</td>
+                <td>10.0</td>
+            </tr>
+            <tr>
+                <td>PPSW</td>
+                <td>10.0</td>
+            </tr>
+            <tr style="background-color: blue;color:white">
+                <td colspan="2">Média</td>
+                <td>10.0</td>
+            </tr>
+        </tbody>
+    </table>

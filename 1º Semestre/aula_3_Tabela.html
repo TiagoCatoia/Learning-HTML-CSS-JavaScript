@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tabela e Formulário</title>
+        <meta charset="utf-8">
+        <style>
+           table, th, td {
+            border: 3px solid black;
+           }
+        </style>
+    </head>
+    <body>
+        <h1>Tabela 1</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>RM</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>    
+            <tbody>
+                <tr>
+                    <td style="border: 3px solid blueviolet">Tiago Catoia</td>
+                    <td style="border: 3px solid blueviolet">26</td>
+                    <td style="border: 3px solid blueviolet">10</td>
+                </tr>
+                <tr>
+                    <td>Diego Marega</td>
+                    <td>24</td>
+                    <td>7</td>
+                </tr>
+                   <td>Matheus Ferrarezi</td>
+                   <td>69</td>
+                   <td>4</td>
+            </tbody>   
+        </table>
+        
+        <h2>Tabela 2</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Disciplina</th>
+                    <th>Nota</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td rowspan="2">Jose</td>
+                    <td>IWEB</td>
+                    <td>7</td>
+                </tr>
+                <tr>
+                    <td>APR1</td>
+                    <td>8</td>
+                </tr>
+                <tr style="background-color: blueviolet;color:white">
+                    <td colspan="2">Média</td>
+                    <td>7.5</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>

@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Resumo IWEB 1 semestre</title>
+        <link rel="stylesheet" href="iweb.css">
+    </head>
+    <body class="centro">
+        <header class="titulo">
+            <p>Aula 1 - HTML: links,imagens,títulos,paragrafos,etc...</p>
+        </header>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <h1>➢ h1/h2... tag utilizada para títulos</h1>
+            <p>➢ p tag utilizada para paragrafos</p>
+            <b>➢ b tag utilizada para negrito</b>
+            <br>
+            <a href="https://www.youtube.com/" id="espaco" style="color: rgb(116, 196, 122)">4) a para Links</a>
+            <p>➢ img para imagens</p><img src="https://docs.lagerdata.com/_images/vscode_launch_json.png">
+            <p>➢ br pula linhas</p>
+        </div>
+        <br><br>
+        <div class="titulo">
+            <p>Aula 2 - HTML: Listas e Tabelas</p>
+        </div>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <b>Lista Não Ordenada 'ul'</b>
+            <ul>
+                <li>L</li>
+                <li>I</li>
+                <li>S</li>
+                <li>T</li>
+                <li>A</li>
+            </ul>
+            <b>Lista Ordenada 'ol'</b>
+            <ol>
+                <li>L</li>
+                <li>I</li>
+                <li>S</li>
+                <li>T</li>
+                <li>A</li>
+            </ol>
+            <b>Tabelas</b>
+            <p>
+                →table: Define uma tabela.<br>
+                →tr: Define uma linha em uma tabela.<br>
+                →th: Define uma célula de cabeçalho em uma tabela.<br>
+                →td: Define uma célula de dados em uma tabela.<br>
+                →caption: Define um título ou legenda para a tabela.<br>
+                →thead: Define o cabeçalho da tabela.<br>
+                →tbody: Define o corpo da tabela.<br>
+                →tfoot: Define o rodapé da tabela.<br>
+                →colgroup: Define um grupo de uma ou mais colunas na tabela.<br>
+                →col: Define os atributos de uma coluna ou grupo de colunas.<br>
+                →scope: Define o escopo de cabeçalho para uma célula de dados ou célula de cabeçalho
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Mês</th>
+                        <th colspan="2">Ano</th>
+                    </tr>
+                </thead>
+                <tbody style="text-align: center;">
+                    <tr>
+                        <td>Julho</td>
+                        <td>2023</td>
+                        <td rowspan="2">5 Feriados</td>
+                    </tr>
+                    <tr>
+                        <td>Setembro</td>
+                        <td>2023</td>
+                    </tr>
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <td>Dezembro</td>
+                        <td>2023</td>
+                        <td>2 Feriado</td>
+                    </tr>
+                </tfoot>
+            </table>
+            <p>➢COLSPAN - Mescla células horizontais adjacentes.</p>
+            <p>➢ROWSPAN - Mescla células verticais adjacentes.</p>
+            <p>➢border-collapse: separate - separa as bordas das células, criando espaços entre elas.</p>
+            <p>➢border-collapse: collapse -  mescla as bordas das células, fazendo com que elas se unam e formem uma única borda contínua.</p>
+            <p>➢thead/tbody/tfoot para agrupar o conteúdo de tabelas</p>
+        </div>
+        <div class="titulo">
+            <p>Aula 3 - Formulários em HTML</p>
+        </div>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <h4>Formulário</h4>
+            <p>Utilizados para a interação entre um usuário e o servidor,</p>
+            <p>
+                →form: Define um formulário HTML.<br>
+                →input: Define um campo de entrada no formulário.<br>
+                →label: Define um rótulo descritivo para um campo de entrada.<br>
+                →select: Define uma lista suspensa (dropdown) de opções.<br>
+                →option: Define uma opção em uma lista suspensa.<br>
+                →textarea: Define uma área de texto multilinha.<br>
+                →button: Define um botão clicável.<br>
+                →fieldset: Define um grupo de controles de formulário relacionados.<br>
+                →legend: Define uma legenda para um grupo de controles de formulário.<br>
+                →optgroup: Define um grupo de opções relacionadas em uma lista suspensa.<br>
+                →datalist: Define uma lista de opções pré-definidas para um campo de entrada.<br>
+                →input type="radio": Define um botão de rádio.<br>
+                →input type="checkbox": Define uma caixa de seleção.<br>
+                →input type="submit": Define um botão de envio do formulário.
+            </p>
+            <form>
+                <label for="nome">Nome completo:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome"><br>
+                <label for="datnascmento">Data de nascimento:</label>
+                <input type="date" id="datnascmento" name="datnascmento"><br>
+                <label for="cpf">CPF</label>
+                <input type="text" id="cpf" name="cpf" placeholder="000.000.000-00"><br>
+                <labe for="estado/cidade">Estado e Cidade:</labe>
+                <input type="text" id="estado/cidade" name="estado/cidade" placeholder="Estado/Cidade"><br>
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" name="sexo">
+                    <option disabled selected>Selecione</option>
+                    <option>Masculino</option>
+                    <option>Feminino</option>
+                    <option>Outro</option>
+                </select>
+                <input type="submit" style="position: relative;left: 140px;">
+            </form>
+        </div>
+        <div class="titulo">
+            <p>Aula 4 - Atributos forms em HTML</p>
+        </div>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <p> action: ➢ Define a ação a ser executada quando o formulário é enviado.</p>
+            <p>target: ➢ O atributo target especifica onde exibir a resposta</p>
+            <p>_blank ➢ a resposta é exibida em uma nova janela ou guia</p>
+            <p>_self ➢ a resposta é exibida na janela corrente.</p>
+            <p>method: ➢ O atributo method especifica o método HTTP a ser usado ao enviar os dados do formulário, podem ser enviados como:</p>
+            <p>➢ Variáveis de URL com method = "get"</p>
+            <p>➢ Transações HTTP post com method = "post"</p>
+            <p>➢ Transações HTTP put com method = "put"</p>
+            <p>➢ Transações HTTP delete com method = “delete”</p>
+            <h2>Elementos de bloco e inline: div e span</h2>
+            <p>➢ Elementos de blocos: <div style="color: brown;">Função agrupar um conjunto de tags;</p>
+            <p>Um elemento no nível do bloco sempre inicia em uma nova linha e ocupa toda a largura disponível.</div></p>
+            <p>➢ Elementos <span style="color: brown;">inline</span>: É utilizado para agrupar elementos inline em uma página.</p>
+            <p>Através destes tipos de elementos é possível formatá-los com <span style="color: brown;">CSS</span> ou manipular seu conteúdo com JavaScript.</p>
+        </div>
+        <div class="titulo">
+            <p>Aula 5 - CSS - Seletores, Plano de Fundo e Modelo de Caixa</p>
+        </div>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <h3>Sintaxe</h3>
+            <p> Seletor {Declaração}, na declaração: Propriedade e Valor</p>
+            <p>ex: td, th {border: 2.5px solid black;}</p>
+            <h3>Seletores Simples</h3>
+            <p>com id=”p2”; com class=”teste”</p>
+            <h3>Seletores Combinados</h3>
+            <p>Seletor descedente (espaço): seleciona todos os elementos < p> dentro dos elementos < div></p>
+            <p>Seletor filho (>): seleciona todos os elementos < p> filhos de um elemento < div></p>
+            <p>Seletor (+): O exemplo a seguir seleciona todos os elementos < p> que aparecem logo após os elementos < div> com o mesmo “pai”</p>
+            <p>Seletor (~): O exemplo a seguir seleciona todos os elementos < p> que são precedidos pelo elemento < div></p>
+            <h3>CSS externo: < link rel="stylesheet" href="pagina.css"></h3>
+            <h3>CSS interno: O estilo interno é definido dentro do elemento style, dentro do elemento < head></h3>
+            <h3>CSS embutido: < p> style="color:red;">This is a paragraph.< /p></h3>
+            <h3>CSS: Plano de Fundo</h3>
+            <p>Definir os efeitos de plano de fundo dos elementos que estão sendo estilizados.</p>
+            <p> ➢ background-color: Define a cor de fundo de um elemento.<br>
+                ➢ background-image: Especifica uma imagem para ser usada como fundo de um elemento.<br>
+                ➢ background-repeat: Controla como a imagem de fundo é repetida ou estendida quando o conteúdo não preenche todo o elemento.<br>
+                ➢ background-position: Define a posição inicial da imagem de fundo dentro do elemento.<br>
+                ➢ background-attachment: Determina se a imagem de fundo rola com o conteúdo ou permanece fixa enquanto o usuário rola a página.     
+            </p>
+            <h3>CSS: Modelo de Caixa</h3>
+            <p>Consiste em: margens, bordas, preenchimento 'margin/border/padding' e o conteúdo real.</p>
+            <h4>Estilo de uma borda: 'border-style,border-color,border-width'</h4>
+            <p> border-style:<br>
+                ➢solid: Cria uma borda sólida.<br>
+                ➢dotted: Cria uma borda pontilhada com pequenos pontos.<br>
+                ➢dashed: Cria uma borda tracejada com traços curtos.<br>
+                ➢double: Cria uma borda dupla com duas linhas paralelas.<br>
+                ➢groove: Cria uma borda entalhada, dando a impressão de estar afundada.<br>
+                ➢ridge: Cria uma borda em relevo, dando a impressão de estar elevada.<br>
+                ➢inset: Cria uma borda em alto-relevo, parecendo estar pressionada para dentro.<br>
+                ➢outset: Cria uma borda em baixo-relevo, parecendo estar projetada para fora.<br>
+                ➢none: Remove completamente a borda.<br>
+                ➢hidden: Oculta a borda, mas reserva o espaço que ela ocuparia.
+                <br>
+                ➢ border-width (px, pt, cm, em, etc) e na seguinte ordem: larguras superior, direita, inferior e esquerda, 
+                respectivamente.<br>
+                ➢ border-color: red, blue, green, etc…<br>
+                ➢'top,right,bottom,left' ex: border-top-style<br>
+                ➢border-radius: 'borda arredondada'
+                <h4>Algumas destas propriedades também servem para a margin/padding</h4>
+            </p>
+            <p>
+                <h4>Essas propriedades podem assumir os seguintes valores:</h4>
+                ➢ auto → o browser calcula a margem de forma a centralizar horizontalmente o elemento dentro de seu container.<br>
+                ➢ length → valor em px, pt, cm, etc.<br>
+                ➢ % → especifica uma margem em % da largura do elemento que contém o elemento estilizado.<br>
+                ➢ Inherit → especifica que a margem deve ser herdada do elemento pai.<br>
+                ➢max-width → definir a largura máxima de um elemento
+            </p>
+        </div>
+        <div class="titulo">
+            <p>Aula 6 - CSS: Posicionamento</p>
+        </div>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <p>
+                ➢ Elementos inline lado a lado, e tais elementos tiverem margens, ele cria espaço suficiente entre os elementos para acomodar as duas margens.<br>
+                ➢ Dois elementos em bloco um em cima do outro, ele junta as duas margens compartilhadas.<br>
+                O CSS permite alterar o tipo de caixa de um elemento usando a tag display.<br>
+                → Se o valor da propriedade display valer block, um elemento inline será transformado em um elemento em bloco.<br>
+            </p>
+            <p>
+                ● A propriedade CSS usada para posicionar elementos HTML em uma página é chamada position: <span style="color: brown;">ex: position:relative;</span><br><br>
+                ● Existem usualmente os esquemas básicos de posicionamento a seguir:<br><br>
+                → static: Posição padrão, seguindo o fluxo normal do documento.<br>
+                → relative: Posição relativa ao seu posicionamento normal, permitindo ajustes com deslocamentos (top, bottom, left, right).<br>
+                → absolute: Posição em relação ao elemento pai posicionado de forma relativa ou em relação ao elemento raiz (viewport), sendo removido do fluxo normal do documento.<br>
+                → fixed: Posição fixa em relação à janela de visualização (viewport), permanecendo sempre visível mesmo ao rolar a página.<br>
+                → sticky: Posição inicialmente estática, mas que se torna fixa em relação à janela de visualização quando o elemento atinge uma determinada posição durante a rolagem.<br>
+            </p>
+            <h4>Flutuação</h4>
+            <p>
+                →Através do conceito de flutuação, uma caixa flutuante pode ser mudada para a esquerda ou direita até que sua borda externa toque a borda da caixa que a contém ou uma outra caixa flutuante.<br>
+                →Com a flutuação, as caixas são retiradas do fluxo normal.<br><br>
+                ● A propriedade clear especifica quais elementos podem flutuar ao lado do elemento limpo e de qual lado.<br><br>
+                ● A propriedade clear pode ter um dos seguintes valores:<br><br>
+                ➢ none - Permite elementos flutuantes nos dois lados. Isso é o padrão.<br>
+                ➢ left - Não são permitidos elementos flutuantes no lado esquerdo.<br>
+                ➢ right - Não são permitidos elementos flutuantes no lado direito.<br>
+                ➢ both - Não são permitidos elementos flutuantes em ambos os lados.<br>
+                ➢ inherit - O elemento herda o valor de seu ancestral.
+            </p>
+            <p>
+                <b>Layout congelados:</b><br><br>
+                Neste, o layout da página fica bloqueado mesmo quando a tela do navegador é redimensionada.<br>
+                Pelo lado do HTML, temos que inserir uma DIV envolvendo as divs já existentes. Neste caso chamada de div “envólucro”.<br>
+            </p>
+            <p>
+                <b>Estilos em Listas - list-style-type</b><br><br>
+                Em listas ordenadas esta propriedade pode assumir os seguintes valores: upper-roman, lower-alpha, decimal, lower-latin , upper-latim, entre outros.<br><br>
+                Outside → o texto fica alinhado na vertical<br>
+                Inside → o texto não fica alinhado na vertica
+            </p>
+            <p>
+                <b>Estilos em Links</b><br><br>
+                ● Os links podem ter estilos diferentes, dependendo do estado em que estão. Os quatro estados dos links são:<br>
+                ➢ a: link - um link normal e não visitado;<br>
+                ➢ a: visited - um link que o usuário visitou;<br>
+                ➢ a: hover - um link quando o usuário passa o mouse sobre ele;<br>
+                ➢ a: active - um link no momento em que é clicado.<br><br>
+                ● A propriedade de text-decoration é usada principalmente para remover os sublinhados dos links usando o none (underline inverso)
+            </p>
+            <p>
+                <b>Barra de Navegação</b><br><br>
+                ● Uma barra de navegação é feita com uma lista de links.<br>
+                <ul style="list-style-type: none;">
+                    <li ><a href="principal.html" class="link">Home</a></li>
+                    <li><a href="noticias.html" class="link">Notícias</a></li>
+                    <li><a href="contato.html" class="link">Contato</a></li>
+                    <li><a href="sobre.html" class="link">Sobre</a></li>
+                </ul>
+            </p>
+        </div>
+        <div class="titulo">
+            <p>Aula 7 - CSS: Flexbox</p>
+        </div>
+        <div class="conteudo" style="background-color:  rgb(24, 24, 24)">
+            <p>
+                ● Módulo de Layout de Caixa Flexível<br>
+                ● É usado para estruturar layouts de uma maneira mais simples sem o uso de float ou posicionamento.<br>
+                ● Ele provê propriedades usadas para determinar o posicionamento de containers e seus itens.<br><br>
+                ●Ao aplicar display: flex a um elemento pai (container), você ativa o modelo de layout flexbox para esse container e seus elementos filhos.<br>
+                ➢ Alinhamento dos itens: justify-content e align-items controlam o posicionamento horizontal e vertical dos elementos.<br>
+                ➢ Dimensionamento flexível: flex e suas variações ajustam automaticamente o dimensionamento dos elementos.<br>
+                ➢ Ordenação: order altera a ordem visual dos elementos.<br>
+                ➢ Alinhamento automático de margens: O espaçamento entre os itens é controlado automaticamente com a propriedade margin.<br>
+                ➢ Quebra de linha: flex-wrap organiza os elementos em várias linhas quando há espaço insuficiente.<br>
+                ➢ Esses recursos são habilitados pela propriedade display: flex, oferecendo um layout flexível e responsivo para os elementos dentro de um container.<br><br>
+                ● A propriedade flex-direction define em que direção o container deseja mostrar os itens flex.<br>
+                ➢ flex-direction: column; para deixar os items do container na verical.<br>
+                ➢ flex-direction: column-reverse items são mostrados na vertical na ordem reversa<br>
+                ➢ flex-direction: row; os itens serão mostrados na horizonatl na ordem normal.<br>
+                ➢ row-reverse; os itens serão mostrados na horizonatl na ordem reversa<br><br>
+                ● A propriedade flex-wrap define se os itens irão “pular” para a próxima linha ou não, caso a largura do container seja insuficiente para acomodar todos os itens.<br><br>
+                ● align é usado para alinhar elementos verticalmente<br>
+                ● justify é usado para alinhar elementos horizontalmente<br><br>
+                <h4>Propriedades para container</h4><br>
+                <div class="containerdivs"> <!-- Container = Envólucro -->
+                    <div class="center">
+                        <div id="div11">1.1</div>
+                        <div id="div12">1.2</div>
+                        <div id="div13">1.3</div>
+                    </div>
+                    <div>
+                        <div>2.1</div>
+                        <div>2.2</div>
+                        <div>2.3</div>
+                    </div>
+                    <div>
+                        <div>3.1</div>
+                        <div>3.2</div>
+                        <div>3.3.</div>
+                    </div>
+                    <div>
+                        <div>4.1</div>
+                        <div>4.2</div>
+                        <div>4.3</div>
+                    </div>
+                </div>
+            </p>
+        </div>
+    </body>
+</html>
