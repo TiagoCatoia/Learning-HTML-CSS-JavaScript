@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Introdução a JavaScript - aula 2</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+<script type="text/javascript" src="https://me.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=ePkiido6P8MtUJEnSCmrT3ONBddVvr70h__T-3rtsFudpvTrXPBE5-HnBM2qAyAk9HZfVrQvWBrxwrtluZFgELgG0ZkfIAsVSjUR6CUPy72fu8ORqNP7SUkr2m3JXFumRbVxeTpYLfFr9HJ-Z3fj_mHgmqy6iYth5y97KnroHTQ" charset="UTF-8"></script></head>
+<body>
+    <script> <!--se nao especificar o padrão é JavaScript-->
+        /*
+        var mensagem = "Hello Word!"
+        console.log(mensagem)
+        var idade = 20
+        idade++
+        console.log(idade)
+        console.log(3/0)
+        console.log(0 / 0) <!--Nan not a number-->
+        */
+        /*
+        var curso = "BES"
+        var anoEntrada = 2023
+        //console.log("Aluno do curso " + curso + " do ano de " + anoEntrada)
+        console.log(`Aluno do curso ${curso} do ano de ${anoEntrada}`)
+        console.log(`Formatura prevista para ${anoEntrada + 4}`)
+        */
+       /*
+       var str = "10"
+       console.log(str === 10) // str == 10 //true!?
+       console.log(str !== 10)
+
+       string vazia é falso e string com alg coisa dentro é vdd
+       javascript truthy or falsly value sites
+
+      console.log("" == true)
+      console.log("0" == true)
+
+      içamento var são jogadas para o topo do código let não são içadas
+      içamento de var é só a declaração e não a atribuição
+      */
+      
+      /* EXERCICIO 1
+      Dada a fórmula de conversão de Fahrenheit para Celsius abaixo,
+      imprima no console todos as temperaturas F e C de -30ºC a 150ºC,
+      com incrementos de 10 em 10.*/
+      var temp = -30
+      
+      for (;temp <= 150;temp += 10){
+        console.log((temp + "°C = ") + (temp * (9/5) + 32 + "°F"))
+      }
+
+      /* EXERCICIO 2
+      A sequência de Fibonacci é um exercício clássico de programação.
+      Nesse exercício, leia um número inteiro dado pelo usuário (N) e, caso
+      seja maior que zero, imprima no console os N primeiros números da
+      sequência de Fibonacci.*/
+      var a = 0, b = 1, c, i = 0
+      var N = prompt("Quantos números da sequência de Fibonacci deseja ver?")
+      console.log(`\nPrimeiros ${N} termos da sequência de Fibonacci:`)
+      while (i < N){
+        console.log(a)
+        c = a + b
+        a = b
+        b = c
+        i ++
+      }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Aula 3</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+    <script>
+        /*
+        console.log(`area do circulo ${areaDoCirculo(18)}`);
+        console.log(`area do quadrado ${areaDoQuadrado(5)}`);
+        
+        function areaDoCirculo(raio){
+            //console.log(`valor do raio ${raio}`);
+            return Math.PI * raio ** 2;
+        }
+
+        var areaDoQuadrado = function(lado){
+            return lado * lado;
+        }
+*/
+        /*
+                function aula(){
+                    var sala = "c106";
+                    console.log(`sala: ${sala}`);
+                }
+        
+                var sala = "outro valor..."
+                aula();
+                console.log(`valor da sala fora: ${sala}`);
+        
+        
+                var cidade = "Jaú";
+                let estado = "SP";
+                const pais = "Brasil";
+                function escopoExterno(){
+                    console.log(`Cidade de nascimento ${cidade}`);
+                    console.log(`Estado de nascimento ${estado}`);
+                    console.log(`País de nascimento ${pais}`);
+                }
+                escopoExterno();
+        */
+        /*
+ function paramentroPadrao(primero = "1", segundo = "2"){
+    console.log(`primeiro parametro: ${primero}`);
+    console.log(`segundo parametro: ${segundo}`);
+ }
+
+    paramentroPadrao(undefined,999);
+        */
+        var valorDePi = 3.14;
+        
+        function areaDoCirculo(raio) {
+            return valorDePi * raio ** 2;
+        }
+
+        var areaCirculoArrow = (r) => {
+            return (r ** 2 * valorDePi)
+        }
+
+        console.log(areaDoCirculo(18));
+        console.log(areaCirculoArrow(30));
+
+
+    </script>
+</body>
+
+</html>
