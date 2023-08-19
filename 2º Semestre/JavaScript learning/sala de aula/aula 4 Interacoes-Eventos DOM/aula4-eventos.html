@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Eventos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+</head>
+
+<body>
+    <button id="botaoA">A</button>​
+    <button id="botaoB">B</button>​
+    <button id="botaoC">C</button>
+      <br/>
+    <a href="http://scl.ifsp.edu.br">IFSP!!!</a>
+    <script>
+       /* function fazprimeiro(e) {
+            console.log("Fiz primeiro");
+            let botao = document.querySelector("button");
+            botao.removeEventListener("click", fazprimeiro);
+        }
+        function fazsegundo(e) {
+            console.log("Fiz segundo");
+        }
+        let btn = document.querySelector("button");
+        btn.addEventListener("click", fazprimeiro);
+        btn.addEventListener("click", function(e){
+            console.log("segunda função, anônima")
+        });
+*/
+/*
+        function trataClique(evento){
+            console.log(`evento disparado de ${evento.target.id}`);
+        }
+
+        let botoes = document.querySelectorAll("button");
+        for(botao of botoes){
+            botao.addEventListener("click", trataClique);
+        }
+
+        let link = document.querySelector("a");
+        link.addEventListener("click", function(evento){
+            alert("Clicou no botão");
+            evento.preventDefault();
+        })
+       */
+       function trataClique(evento){
+            if(evento.target.id == "botaoA"){
+                let link = document.querySelector("a");
+                link.innerText = "Alterado pelo botão A"
+            };
+        }
+
+        let botoes = document.querySelectorAll("button");
+        for(botao of botoes){
+            botao.addEventListener("click", trataClique);
+        }
+
+    </script>​
+</body>
+
+</html>
