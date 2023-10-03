@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>busca CEP</title>
+
+</head>
+
+<body>
+    <div id="posicao1"></div>
+    <div id="posicao2"></div>
+    <div id="posicao3"></div>
+    <script>
+        function carregarEnderecoCEP(cep) {
+            document.querySelector("#posicao1").innerText = "inciando";
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+                .then((resposta) => {
+                    return resposta.json();
+                })
+                .then((endereco) => document.querySelector("#posicao2").innerText = endereco.logradouro)
+                .catch((erro) => console.log("Erro na requisição", erro))
+                .finally(() => document.querySelector("#posicao3").innerText = "terminou");
+        }
+        carregarEnderecoCEP("13565820");
+    </script>
+
+</body>
+
+</html>

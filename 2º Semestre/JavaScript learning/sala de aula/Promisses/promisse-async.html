@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Promisse</title>
+
+</head>
+
+<body>
+    <script>
+    //IIFE
+    (async function (){
+        console.log("inicio...");
+        
+        let promessa = new Promise((resolve, reject) => {
+            let x, y, z;
+            for (x = 0; x < 900000; x++) {
+                for (y = 0; y < 10000; y++) {
+                    z = x * y;
+                }
+            }
+            resolve("sucesso");
+        });
+
+        
+        let resultado = await promessa;
+        console.log(resultado);
+        console.log("fim");
+    })();
+
+    </script>
+
+</body>
+
+</html>

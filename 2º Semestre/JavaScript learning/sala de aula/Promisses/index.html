@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Chamadas assíncronas</title>
+
+</head>
+
+<body>
+    <script>
+        function demorada() {
+            let x, y, z;
+            for (x = 0; x < 900000; x++) {
+                for (y = 0; y < 10000; y++) {
+                    z = x * y;
+                }
+            }
+            console.log("terminou a função demorada");
+        }
+
+
+
+        function teste() {
+            console.log("---");
+            console.log("iniciando o teste");
+            //  demorada();
+
+
+            /*
+                        let funcao = function () {
+                            console.log("Terminou o timeout...")
+                        };
+            
+                        setTimeout(funcao, 3000);
+            */
+           
+            console.log("terminou o teste");
+        }
+    </script>
+
+    <button onclick="teste()">Iniciar...</button>
+
+
+</body>
+
+</html>
