@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Tabela De Times</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background-color: #99c2a2;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+        }
+        table, th, td {
+            border: 3px solid #7a918d;
+            background-color: #c5edac;
+            box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.443);
+            font-size: large;
+        }
+        th, td {
+            padding: 3px 30px 3px 30px;
+        }
+        button {
+            background-color: #93B1A7;
+            width: 355px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <button id="botaoDaTabela" onclick="mostrarTabela()"><h2>Mostrar Tabela</h2></button>
+        <div id="secaoTabela"></div>
+    </div>
+
+    <script>
+        function mostrarTabela() {
+            console.log("Imprimindo a tabela...")
+            
+            let table = document.createElement("table")
+            let thead = document.createElement("thead")
+            let tr = document.createElement("tr")
+            let th = document.createElement("th")
+            let th2 = document.createElement("th")
+            let tbody = document.createElement("tbody")
+
+            secaoTabela = document.querySelector("#secaoTabela")
+            secaoTabela.appendChild(table)
+            table.appendChild(thead)
+            thead.appendChild(tr)
+            tr.appendChild(th)
+            tr.appendChild(th2)
+            table.appendChild(tbody)
+
+            dadosTabela(tbody, th, th2) // carrega os dados da tabela e criar o contéudo do tbody
+        }
+        function dadosTabela(tbody, th, th2) {
+            const Times = [
+                "1º Botafogo", "2º Palmeiras", "3º Flamengo", "4º Fluminense", "5º Grêmio",
+                "6º Athletico-PR", "7º Bragantino", "8º Fortaleza", "9º Cuiabá", "10º São Paulo",
+                "11º Atlético-MG", "12º Cruzeiro", "13º Corinthians", "14º Internacional", "15º Goiás",
+                "16º Bahia", "17º Santos", "18º Vasco", "19º Coritiba", "20º América-MG"
+            ]
+            const Pontuacao = [ // uso de dicionário para representar uma mudança de posição
+                { pontos: 48, seta: "▲" },   // ▲ seta para cima
+                { pontos: 37, seta: "▼" },   // ▼ seta para baixo
+                { pontos: 35, seta: "▲" },
+                { pontos: 34, seta: "▲" },
+                { pontos: 33, seta: "▲" },
+                { pontos: 32, seta: "" },
+                { pontos: 32, seta: "" },
+                { pontos: 29, seta: "▼" },
+                { pontos: 28, seta: "" },
+                { pontos: 28, seta: "" },
+                { pontos: 27, seta: "▼" },
+                { pontos: 35, seta: "▲" },
+                { pontos: 25, seta: "" },
+                { pontos: 24, seta: "▼" },
+                { pontos: 24, seta: "▼" },
+                { pontos: 23, seta: "▼" },
+                { pontos: 21, seta: "▼" },
+                { pontos: 16, seta: "▼" },
+                { pontos: 14, seta: "▼" },
+                { pontos: 10, seta: "▼" }
+            ]
+            console.log("Carregando dados...")
+            th.innerHTML = "<h3>Classificação</h3>"
+            th2.innerHTML = "<h3>Pontuação</h3>"
+            for (let i=0; i<20; i++) {
+                let row = tbody.insertRow(i) // row = empty <tr> linha
+                let cell1 = row.insertCell(0) // cell = empty <td> coluna
+                cell1.innerText = Times[i]
+                let cell2 = row.insertCell(1)
+                cell2.innerText = Pontuacao[i].pontos + ' ' + Pontuacao[i].seta
+            }
+            let botaoDaTabela = document.querySelector("#botaoDaTabela")
+            botaoDaTabela.disabled = true
+            botaoDaTabela.innerHTML = "<h2>BRASILEIRÃO SÉRIE A</h2>"
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Verificador de Idade</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background-color: rgb(63, 116, 180);
+            height: 100vh;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 25%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #divCentral {
+            background-color: aliceblue;
+            width: 35%;
+            height: 100%;
+            border-radius: 5%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+            padding: 1%;
+        }
+        #titulo {
+            text-align: center;
+            width: 100%;
+            height: 15%;
+            color: white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: larger;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+        }
+        #rodapé {
+            text-align: center;
+            width: 100%;
+            height: 10%;
+            color: white;
+            font-size: larger;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+        }
+        h3 a {
+            color: white;
+            text-decoration: none;
+        }
+        #verificar {
+            color: white;
+            background-color: rgb(63, 116, 180);
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+            border: 10px;
+            border-radius: 30px;
+            padding: 3%;
+            font-size: large;
+            cursor: pointer;
+        }
+        #verificar:hover {
+            background-color: rgb(38, 91, 155);
+        }
+        #verificar:active {
+            background-color: rgb(29, 74, 129);
+        }
+        .fonte, .result {
+            color: rgba(0, 0, 0, 0.855);
+        }
+        #imagem {
+            width: 90%;
+            height: 60%;
+        }
+    </style>
+</head>
+<body>
+    <header id="titulo">
+        <h1>Título</h1>
+    </header>
+    <div id="container">
+        <div id="divCentral">
+            <h2 class="fonte">Ano de Nascimento:
+                <input type="number" name="dataNascimento" value="dataNascimento" id="dataNascimento">
+                <label for="dataNascimento"></label>
+            </h2>
+            <h2 class="fonte">Sexo:
+                <input type="radio" name="sexo" value="masc" id="masculino">
+                <label for="masculino">Masculino</label>
+                <input type="radio" name="sexo" value="fem" id="feminino">
+                <label for="feminino">Feminino</label>
+            </h2>
+            <h2><button id="verificar">Verificar</button></h2>
+            <h2 class="result" style="text-align: center;">Preencha os dados acima para ver o resultado!</h2>
+            <img id="imagem" style="display: none;"> <!--display none para não aparecer inicialmente-->
+        </div>
+    </div>
+    <footer id="rodapé">
+        <h3>
+            <a href="https://github.com/TiagoCatoia">@TiagoCatoia</a>
+        </h3>
+    </footer>
+    <script>
+        var verificar = document.getElementById("verificar")
+        
+        verificar.addEventListener("click", verificarIdade)
+        function verificarIdade() {
+            var data = new Date();
+            var ano = data.getFullYear();
+            var dataNascimento = document.getElementById("dataNascimento").value
+            var idade = (ano - dataNascimento)
+
+            var masculino = document.getElementById("masculino").checked
+            var feminino = document.getElementById("feminino").checked
+            if (idade < 0 || idade > 117 || (!masculino && !feminino)){
+                var imagem = document.querySelector("#imagem");
+                imagem.style.display = "none";
+                var result = document.querySelector(".result")
+                result.innerText = `Idade Inválida, Preencha Corretamente os Dados!`
+                var container = document.getElementById("container");
+                container.style.height = "25%";
+            } else {
+                var container = document.getElementById("container");
+                container.style.height = "70%";
+                var result = document.querySelector(".result")
+                var imagem = document.querySelector("#imagem");
+                if (masculino) {
+                    result.innerText = `Detectamos Homem com ${idade} anos.`
+                    if (idade <= 13){
+                        // Criança
+                        imagem.setAttribute('src', 'images/homemCrianca.png')
+                        imagem.style.display = "inline";
+                        imagem.style.marginLeft = "2%"
+                    } else if (idade <= 29) {
+                        // Jovem
+                        imagem.setAttribute('src', 'images/homemJovem.png')
+                        imagem.style.display = "inline";
+                        imagem.style.marginLeft = "-1%"
+                    } else if (idade < 60) {
+                        // Adulto
+                        imagem.setAttribute('src', 'images/homemAdulto.png')
+                        imagem.style.display = "inline";
+                        imagem.style.marginLeft = "-5%"
+                    } else {
+                        // Idoso
+                        imagem.setAttribute('src', 'images/homemIdoso.png')
+                        imagem.style.display = "inline";
+                        imagem.style.marginLeft = "8%"
+                    }
+                } else {
+                    result.innerText = `Detectamos Mulher com ${idade} anos.`
+                    if (idade > 0 && idade <= 10){
+                        // Criança
+                    } else if (idade <= 20) {             // 600 x 401px 
+                        // Jovem
+                    } else if (idade < 60) {
+                        // Adulto
+                    } else {
+                        // Idoso
+                    }
+                }
+            }
+        }
+    </script>
+</html>

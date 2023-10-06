@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Calculo do IMC</title>
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                margin: 0;
+                padding: 0;
+                height: 100vh;
+                background-color: rgb(63, 116, 180);
+            }
+            div.container {
+                background-color: white;
+                width: 25%;
+                height: 50%;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+                margin-top: 1%;
+            }
+            h1 {
+                text-align: center;
+            }
+            h2 {
+                width: 50%;
+                margin: 0;
+                display: inline;
+            }
+            .btnResultados {
+                margin-left: 35%;
+            }
+            label {
+                margin: 3%;
+                font-size:larger;
+                font-size: 20px;
+            }
+            input {
+                background-color: rgb(233, 235, 238);
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+                border: 10px;
+                border-radius: 3px;
+                padding: 3px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 50%;
+                padding: 2%;
+                margin-left: 3%;
+            }
+            button {
+                margin: 5%;
+                padding: 1%;
+            }
+            #botao {
+                color: white;
+                background-color: rgb(63, 116, 180);
+                box-shadow:  5px 5px 10px rgba(0, 0, 0, 0.402);
+                border: 10px;
+                border-radius: 30px;
+                padding: 3%;
+                font-size: large;
+                cursor: pointer;
+            }
+            #divTabela {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+                margin-top: 10%;
+            }
+            table {
+                text-align: center;
+                width: 100%;
+                padding: 5%;
+                font-size: larger;
+            }
+            td, tr {
+                border: 3px solid black;
+            }
+            #padrao {
+                border: 3px solid green;
+            }
+            #foraPadraoAmarelo {
+                border: 3px solid yellow;
+            }
+            #foraPadraoVermelho {
+                border: 3px solid red;
+            }
+            #divResultado {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                background-color: rgb(232, 232, 232);
+                box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+                border-radius: 10px;
+                margin-top: 5%;
+                text-align: center;
+                font-size: larger;
+            }
+            #btnFechar {
+                font-size: large;
+                width: 10%;
+                height: 10%;
+                border-radius: 50px;
+                color: black
+            }
+            #divResultado h3 {
+                display: inline-block;
+                margin: 10% 20% 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <!--Usuário insere os dados-->
+        <!--Resultado é exibido em um elemento HTML-->
+        <div class="container">
+            <h1>Calculo do IMC</h1>
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome"><br><br>
+            <label for="peso">Peso(kg)</label>
+            <input type="text" name="peso" id="peso"><br><br>
+            <label for="altura">Altura(cm)</label>
+            <input type="text" name="altura" id="altura">
+            <h2><button id="botao" onclick="calculaIMC()">Calcular</button></h2>
+            <h2><button id="botao" class="btnResultados" onclick="exibirResultados()">Resultados</button></h2>
+        </div>
+        <script>
+            // IMC = Peso ÷ (Altura × Altura)
+            var criouTabela = false // variável de controle
+            var armazenaIMCs = []
+
+            function calculaIMC() {
+
+                let btn = document.querySelector("#botao")
+                let container = document.querySelector(".container")
+                let peso = document.querySelector("#peso").value
+                let nome = document.querySelector("#nome").value
+                let altura = document.querySelector("#altura").value
+                if (peso === "" || nome === "" || altura === "" || isNaN(peso) || !isNaN(nome) || isNaN(altura)) {
+                    event.preventDefault() // impede o envio do formulário
+                    alert("Preencha corretamente os campos de texto antes de enviar...")
+                } else {
+                    altura = altura / 100 // passando altura para metro
+                    let IMC = peso / (altura * altura)
+                    var divTabela = document.createElement('div')
+                    var tbody = document.createElement('tbody')
+
+                    if (criouTabela == false) {
+                        var divTabela = document.createElement('div')
+                        var table = document.createElement('table')
+                        var thead = document.createElement('thead')
+                        var thNome = document.createElement('th')
+                        var thIMC = document.createElement('th')
+                        var tr = document.createElement("tr")
+                        container.appendChild(divTabela)
+                        divTabela.id = 'divTabela'
+
+                        divTabela.appendChild(table)
+                        table.appendChild(thead)
+                        thead.appendChild(tr)
+                        tr.appendChild(thNome)
+                        tr.appendChild(thIMC)
+                        table.appendChild(tbody)
+
+                        thNome.innerHTML = "<h3>Nome</h3>"
+                        thIMC.innerHTML = "<h3>IMC</h3>"
+                        criouTabela = true
+                    }
+                    let tabela = document.querySelector('table')
+                    let todasCelulas = tabela.querySelectorAll('td') // todas os td's(céluals) do tbody
+                    let achou = false
+
+                    for (let i=0; i<todasCelulas.length; i++) {
+                        if (todasCelulas[i].innerText === nome) {
+                            todasCelulas[i+1].innerText = IMC.toFixed(1)
+                            achou = true
+
+                            armazenaIMCs[i] = parseFloat(IMC.toFixed(1))
+                            if (IMC >= 18.5 && IMC <= 25) {
+                                todasCelulas[i+1].id = 'padrao'
+                            } else if (IMC >= 16.5 && IMC <= 27) {
+                                todasCelulas[i+1].id = 'foraPadraoAmarelo'
+                            } else {
+                                todasCelulas[i+1].id = 'foraPadraoVermelho'
+                            }
+                            alert(`IMC de ${nome} foi atualizado!`)
+                        }
+                    }
+
+                    if (achou === false) {
+                        armazenaIMCs.push(parseFloat(IMC.toFixed(1)))
+                        var tbody = document.querySelector('tbody')
+                        var row = tbody.insertRow(-1)
+                        var cell1 = row.insertCell(0)
+                        cell1.innerText = nome
+                        var cell2 = row.insertCell(1)
+                        cell2.innerText = IMC.toFixed(1)
+                        if (IMC >= 18.5 && IMC <= 25) {
+                            cell2.id = 'padrao'
+                        } else if (IMC >= 16.5 && IMC <= 27) {
+                            cell2.id = 'foraPadraoAmarelo'
+                        } else {
+                            cell2.id = 'foraPadraoVermelho'
+                        }
+                    }
+                }
+            }
+            function exibirResultados() {
+                if (armazenaIMCs.length === 0) {
+                    alert('Calcule os dados dos IMCs para ver os resultados...')
+                } else {
+                    let btnCalcula = document.querySelector('#botao')
+                    let btnResultado = document.querySelector('.btnResultados')
+                    let body = document.querySelector('body')
+                    let divResultado = document.createElement('div')
+                    let btnFechar = document.createElement('button')
+
+                    body.appendChild(divResultado)
+                    divResultado.id = 'divResultado' // criar opção para apertar apenas uma vez no botao
+                    btnFechar.id = 'btnFechar'
+                    divResultado.innerHTML = "<h3>Resultados:</h3>"
+                    btnFechar.innerText = "X"
+                    divResultado.appendChild(btnFechar)
+                    btnFechar.addEventListener("click", function() {
+                        divResultado.remove()
+                        btnCalcula.disabled = false
+                        btnResultado.disabled = false
+                    })
+                    let mediaIMC = 0
+                    let medianaIMC = 0
+                    let tamanho = armazenaIMCs.length // número de ICMs armazenados
+
+                    // calculo da media
+                    for (let i=0; i<tamanho; i++) {
+                        mediaIMC += armazenaIMCs[i] // soma dos IMCs
+                    }
+                    mediaIMC = mediaIMC/tamanho
+                    let divMedia = document.createElement("div")
+                    divMedia.textContent = `Média dos IMCs:   ${mediaIMC.toFixed(1)}`
+                    divResultado.appendChild(divMedia)
+                    
+                    // calculo da mediana
+                    if (tamanho % 2 == 0) {
+                        medianaIMC += armazenaIMCs[tamanho/2] // acessa o elemento do meio da direita
+                        medianaIMC += armazenaIMCs[(tamanho/2)-1] // do meio da esquerda
+                        medianaIMC = medianaIMC/2 // divido por 2 para ter a mediana
+                    } else {
+                        medianaIMC = armazenaIMCs[(tamanho/2)-0.5] // acessa o elemento do meio
+                    }
+                    let divMediana = document.createElement("div")
+                    divMediana.textContent = `Mediana dos IMCs:   ${medianaIMC.toFixed(1)}`
+                    divResultado.appendChild(divMediana)
+
+                    // calculo da variância
+                    // Variância = Soma dos quadrados das diferenças entre cada valor e a média, dividida pelo número de valores
+                    let varianca = 0
+                    for (let i = 0;i<tamanho; i++) {
+                        varianca += (mediaIMC - armazenaIMCs[i]) * (mediaIMC - armazenaIMCs[i])
+                    }
+                    varianca = varianca/tamanho
+
+                    let divVariancia = document.createElement("div")
+                    divVariancia.textContent = `Variância dos IMCs:   ${varianca.toFixed(1)}`
+                    divResultado.appendChild(divVariancia)
+
+                    btnCalcula.disabled = true
+                    btnResultado.disabled = true
+                }
+            }
+            /*
+            Altere o programa de cálculo de IMC para que:
+            1. Cada cálculo esteja associada a uma pessoa (nome);
+            2. Os resultado (nome e IMC) sejam exibidos numa tabela;
+            3. Caso seja feito um novo cálculo de uma pessoa (resultado já existente) o mesmo seja atualizado e NÃO adicionado
+            4. Atribua 3 cores diferentes às linhas de resultado, dependendo do valor de IMC.
+            -> Verde para valores na faixa "padrão" (18,5 ~ 25)
+            -> Amarelo para valores até 2,0 "fora" do padrão
+            -> Vermelho para valores acima de 2,0 "fora" do padrão
+            5. Adicione um novo botão, que deve exibir a média, a mediana e a variância dos dados coletados até o momento.
+            Esses resultados podem ser exibidos na própria página ou num pop-up (alert ou afins)
+            */
+        </script>
+    </body>
+</html>

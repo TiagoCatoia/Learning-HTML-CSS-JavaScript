@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>HTML/CSS com JS</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        #bloco1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 250px;
+            background-color: red
+        }
+        #bloco2 {
+            margin-top: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 300px;
+            height: 250px;
+            background-color: red
+        }
+    </style>
+</head>
+<body>
+    <div id="bloco1">
+        <h2>Interaja</h2>
+    </div>
+    <div id="bloco2" onclick="depoisAperto2()" onmousedown="embaixo2()" onmouseleave="saiu2()" onmouseover="sobre2()">
+        <h2>Interaja</h2>
+    </div>
+    <script>
+        const bloco1 = document.getElementById("bloco1")
+        const bloco2 = document.getElementById("bloco2")
+
+        bloco1.addEventListener("click", depoisAperto)
+        bloco1.addEventListener("mousedown", embaixo)
+        bloco1.addEventListener("mouseout", saiu)
+        bloco1.addEventListener("mouseenter", sobre)
+        
+        function depoisAperto(){
+            bloco1.style.background = 'yellow'
+            bloco1.innerHTML = "<h2>Soltou</h2>"
+        }
+        function embaixo(){
+            bloco1.style.background = 'green'
+            bloco1.innerHTML = "<h2>Apertou</h2>"
+        }
+        function saiu(){
+            bloco1.style.background = 'red'
+            bloco1.innerHTML = "<h2>Interaja</h2>"
+        }
+        function sobre(){
+            bloco1.style.background = "yellow"
+            bloco1.innerHTML = "<h2>Entrou</h2>"
+        }
+        
+        function depoisAperto2(){
+            bloco2.style.background = 'yellow'
+            bloco2.innerHTML = "<h2>Soltou</h2>"
+        }
+        function embaixo2(){
+            bloco2.style.background = 'green'
+            bloco2.innerHTML = "<h2>Apertou</h2>"
+        }
+        function saiu2(){
+            bloco2.style.background = 'red'
+            bloco2.innerHTML = "<h2>Interaja</h2>"
+        }
+        function sobre2(){
+            bloco2.style.background = "yellow"
+            bloco2.innerHTML = "<h2>Entrou</h2>"
+        }
+    </script>
+</body>
+</html>

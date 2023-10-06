@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Horário do Dia</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <style>
+        body {
+            background-color: rgb(63, 116, 180);
+            height: 100vh;
+        }
+        #container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 60%;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #divCentral {
+            background-color: aliceblue;
+            width: 35%;
+            height: 100%;
+            border-radius: 5%;
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+        }
+        #titulo {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 15%;
+            color: white;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: larger;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+        }
+        #rodapé {
+            text-align: center;
+            width: 100%;
+            height: 10%;
+            color: white;
+            font-size: larger;
+            text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.402);
+        }
+        #mensagem {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 20%;
+        }
+        #imagem {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Redimensiona a imagem para preencher o círculo */
+        }
+        #foto {
+            width: 100%;
+            height: 70%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #imagem-container {
+            width: 60%; /* Ajuste o valor conforme necessário */
+            height: 90%; /* Ajuste o valor conforme necessário */
+            border-radius: 50%; /* Define o formato redondo */
+            overflow: hidden; /* Oculta partes da imagem que ficariam fora do círculo */
+            position: relative; /* Necessário para posicionar a borda */
+        }
+        #rodapé a {
+        color: white;
+        text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <header id="titulo">
+        <h1>Horário do Dia</h1>
+    </header>
+    <div id="container">
+        <div id="divCentral">
+            <div id="mensagem">
+                <h2>Aqui vai aparecer a mensagem...</h2>
+            </div>
+            <div id="foto">
+                <div id="imagem-container">
+                    <img id="imagem" src="https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Foto do horário">
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer id="rodapé">
+        <a href="https://github.com/TiagoCatoia">
+            <h3>@TiagoCatoia</h3>
+        </a>
+    </footer>
+    <script> 
+        var msg = document.getElementById("mensagem")
+        var img = document.getElementById("imagem")
+        var data = new Date() // data atual
+
+        var hora = data.getHours()
+        msg.innerHTML = `<h2>Agora são ${hora} horas.</h2>`
+        if (hora >= 6 && hora < 12) {
+            img.src = "https://images.pexels.com/photos/2270328/pexels-photo-2270328.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            document.body.style.background = "##47B"
+        } else if (hora >= 12 && hora < 18) {
+            img.src = "https://images.pexels.com/photos/2386144/pexels-photo-2386144.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            document.body.style.background = "#cc6b1f"
+        } else {
+            img.src = "https://images.pexels.com/photos/358528/pexels-photo-358528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+            document.body.style.background = "#00112b"
+        }
+    </script>
+</body>
+</html>

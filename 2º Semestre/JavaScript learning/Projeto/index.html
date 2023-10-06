@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Projeto</title>
+    <style>
+        body {
+            background-color: #6d6875;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        #container {
+            width: 20%;
+            height: 40%;
+            background-color: #ffcdb2;
+            border-radius: 20px;
+            box-shadow: 5px 5px 5px black;
+            padding: 2%;
+            font-size: 25px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+        #usuario, #senha {
+            color: gray;
+            opacity: 50%;
+            width: 200px;
+            height: 20px;
+        }
+        #divUsuario {
+            margin-bottom: 10%;
+        }
+        #divSenha {
+            margin-top: 10%;
+        }
+        #divEnvio {
+            margin-top: 10%;
+            width: 20%;
+        }
+        #btnEnvio {
+            font-size: 20px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            font-weight: bold;
+            width: 90%;
+            height: 90%;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="divUsuario">
+            <label for="usuario">Usuário:</label>
+            <input type="text" id="usuario" name="usuario" placeholder="Digite seu usuário">
+        </div>
+        <div id="divSenha">
+            <label for="senha">Senha:</label>
+            <input type="password" id="senha" name="senha" placeholder="Digite sua senha">
+        </div>
+        <div id="divEnvio">
+            <button type="submit" id="btnEnvio">Enviar</button>
+        </div>
+    </div>
+    <script>
+        var btnSubmit = document.querySelector("#btnEnvio")
+        btnSubmit.addEventListener("click", function () {
+            login(btnSubmit)
+        })
+
+        function login(btnSubmit) {
+            btnSubmit.disabled = true
+            let usuario = document.querySelector("#usuario").value
+            let senha = document.querySelector("#senha").value
+
+            let login = {usn:usuario, psw:senha}
+            console.log(login)
+        }
+    </script>
+</body>
+</html>
