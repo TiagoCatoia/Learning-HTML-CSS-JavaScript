@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+        <title>Navegação</title>
+        <style>
+            body {
+                height: 100vh;
+                display: flex;
+                align-items: center;
+                flex-direction: column;
+                margin: 0;
+            }
+            #infosContato:hover, #sobreUsuario:hover, #paginaInicialBtn:hover {
+                color: rgb(95%, 43%, 31%);
+            }
+        </style>
+    </head>
+    <body>
+        <script>
+            window.addEventListener("load", function(){
+                paginaInicial()
+            })
+
+            function paginaInicial() {
+                document.body.innerHTML = ""
+                console.log("Pagina inicial Aberta")
+
+                // Selecionando o container e o body
+                var body = document.querySelector("body")
+                body.style.backgroundColor = "rgb(5%, 5%, 5%)"
+                // Criando a barra de navegação
+                var barraColorida = document.createElement("div")
+                barraColorida.style.backgroundColor = "rgb(67%, 78%, 99%)"
+                barraColorida.style.width = "100%"
+                barraColorida.style.height = "3%"
+                
+                var barraColoridaRedonda = document.createElement("div")
+                barraColoridaRedonda.style.backgroundColor = "rgb(30%, 54%, 100%)"
+                barraColoridaRedonda.style.width = "40%"
+                barraColoridaRedonda.style.height = "100%"
+                barraColoridaRedonda.style.borderRadius = "100rem"
+                barraColoridaRedonda.style.margin = "auto"
+                barraColorida.appendChild(barraColoridaRedonda)
+                body.appendChild(barraColorida)
+
+                var barraNavegacao = document.createElement("div")
+                barraNavegacao.id = "barraNavegacao"
+                barraNavegacao.style.display = "flex"
+                barraNavegacao.style.alignItems = "center"
+                barraNavegacao.style.justifyContent = "center"
+                barraNavegacao.style.backgroundColor = "rgb(5%, 5%, 5%)"
+                barraNavegacao.style.width = "100%"
+                barraNavegacao.style.height = "15%"
+                barraNavegacao.style.color = "rgb(30%, 54%, 100%)"
+                barraNavegacao.style.boxShadow = "0 5px 5px -5px black"
+                body.appendChild(barraNavegacao)
+                // Implementando a barra de navegação
+                var infosContato = document.createElement("p")
+                infosContato.id = "infosContato"
+                infosContato.onclick = paginaContato
+                infosContato.innerText = "CONTATO"
+                infosContato.style.paddingRight = "5%"
+                infosContato.style.fontFamily = "sans-serif"
+                infosContato.style.fontWeight = "bold"
+                infosContato.style.fontSize = "20px"
+                infosContato.style.textDecoration = "underline"
+                infosContato.style.textDecorationColor = "rgb(67%, 78%, 99%)"
+                infosContato.style.textUnderlineOffset = "0.5em"
+                barraNavegacao.appendChild(infosContato)
+
+                var textoDoMeio = document.createElement("p")
+                textoDoMeio.style.color = "white"
+                textoDoMeio.innerHTML = "<span style='color: rgb(30%, 54%, 100%);'>P</span>ÁGI<span style='color: rgb(30%, 54%, 100%);'>NA</span> IN<span style='color: rgb(30%, 54%, 100%);'>ICI</span>AL"
+                textoDoMeio.style.fontFamily = "sans-serif"
+                textoDoMeio.style.fontWeight = "bold"
+                textoDoMeio.style.fontSize = "50px"
+                barraNavegacao.appendChild(textoDoMeio)
+
+                var sobreUsuario = document.createElement("p")
+                sobreUsuario.id = "sobreUsuario"
+                sobreUsuario.innerText = "SOBRE"
+                sobreUsuario.style.paddingLeft = "5%"
+                sobreUsuario.style.fontFamily = "sans-serif"
+                sobreUsuario.style.fontWeight = "bold"
+                sobreUsuario.style.fontSize = "20px"
+                sobreUsuario.style.textDecoration = "underline"
+                sobreUsuario.style.textDecorationColor = "rgb(67%, 78%, 99%)"
+                sobreUsuario.style.textUnderlineOffset = "0.5em"
+                barraNavegacao.appendChild(sobreUsuario)
+                // Criando div imagem
+                var divImagem = document.createElement("div")
+                divImagem.style.display = "flex"
+                divImagem.style.alignItems = "center"
+                divImagem.style.justifyContent = "center"
+                divImagem.style.width = "50%"
+                divImagem.style.height = "80%"
+                body.appendChild(divImagem)
+                // Adicionando imagem na divImagem
+                var img = document.createElement("img")
+                img.src = "https://assets.website-files.com/5d13ffc1234b422813468582/5e971a4cd85191ad6faf65ad_Group%2046%402x.png"
+                img.style.width = "100%"
+                img.style.height = "100%"
+                divImagem.appendChild(img)
+
+                // Mudança de página
+                var paginaInicialBtn = document.createElement("p")
+                paginaInicialBtn.id = "paginaInicialBtn"
+                paginaInicialBtn.innerText = "INÍCIO"
+                paginaInicialBtn.style.paddingRight = "5%"
+                paginaInicialBtn.style.fontFamily = "sans-serif"
+                paginaInicialBtn.style.fontWeight = "bold"
+                paginaInicialBtn.style.fontSize = "20px"
+                paginaInicialBtn.style.textDecoration = "underline"
+                paginaInicialBtn.style.textDecorationColor = "rgb(67%, 78%, 99%)"
+                paginaInicialBtn.style.textUnderlineOffset = "0.5em"
+
+                function paginaContato() {
+                    infosContato.remove()
+                    textoDoMeio.remove()
+                    sobreUsuario.remove()
+                    textoDoMeio.innerHTML = "C<span style='color: rgb(30%, 54%, 100%);'>ON</span>TA<span style='color: rgb(30%, 54%, 100%);'>T</span>O"
+                    barraNavegacao.appendChild(paginaInicialBtn)
+                    barraNavegacao.appendChild(textoDoMeio)
+                    barraNavegacao.appendChild(sobreUsuario)
+
+                    paginaInicialBtn.addEventListener("click", paginaInicial)
+                }
+                sobreUsuario.addEventListener("click", function() {
+                    infosContato.remove()
+                    textoDoMeio.remove()
+                    sobreUsuario.remove()
+                    textoDoMeio.innerHTML = "SO<span style='color: rgb(30%, 54%, 100%);'>B</span>R<span style='color: rgb(30%, 54%, 100%);'>E</span>"
+                    barraNavegacao.appendChild(paginaInicialBtn)
+                    barraNavegacao.appendChild(textoDoMeio)
+                    infosContato.style.paddingRight = "0"
+                    infosContato.style.paddingLeft = "5%"
+                    barraNavegacao.appendChild(infosContato)
+
+                    paginaInicialBtn.addEventListener("click", paginaInicial)              ///// TROCAR O NOME DIV IMG PARA DIV CONTENT ALGO ASSIM REMOVER CONTEÚDO DELA OU REMOVER E ADICIONAR
+                })
+            }
+        </script>
+    </body>
+</html>
