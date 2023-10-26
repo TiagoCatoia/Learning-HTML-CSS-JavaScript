@@ -14,6 +14,50 @@
             }
             #infosContato:hover, #sobreUsuario:hover, #paginaInicialBtn:hover {
                 color: rgb(95%, 43%, 31%);
+                cursor: pointer;
+            }
+            #primeiroNome, #sobreNome, #email, #telefone {
+                width: 40%;
+                height: 50%;
+                padding-left: 5%;
+                margin-left: 3%;
+                background-color: rgba(255, 255, 255, 0.90);
+                font-family: "sans-serif";
+                font-size: 17px;
+                border: solid rgba(255, 255, 255, 0.90);
+                border-radius: 5px;
+                border: 0;
+            }
+            #btnEnviar {
+                font-family: "sans-serif";
+                font-size: 17px;
+                font-weight: bold;
+                margin-top: 3%;
+                border-radius: 5px;
+                border-color: rgba(255, 255, 255, 0.90);
+                background-color: rgba(255, 255, 255, 0.90);
+                color: rgba(0, 0, 0, 0.507);
+                padding: 0;
+                border: 0;
+            }
+            #btnEnviar:hover {
+                background-color: rgb(95%, 43%, 31%);
+                color: white;
+                cursor: pointer;
+            }
+            #mensagem {
+                width: 100%;
+                height: 100%;
+                font-family: "sans-serif";
+                font-size: 20px;
+                padding-left: 5%;
+                border: solid rgba(255, 255, 255, 0.90);
+                border-radius: 5px;
+                border: 0;
+                background-color: rgba(255, 255, 255, 0.90);
+            }
+            #contate_me {
+                color: rgb(19%, 16%, 22%);
             }
         </style>
     </head>
@@ -22,10 +66,12 @@
             window.addEventListener("load", function(){
                 paginaInicial()
             })
+            var Contatos = []
+
 
             function paginaInicial() {
                 document.body.innerHTML = ""
-                console.log("Pagina inicial Aberta")
+                console.log("Pagina Inicial Aberta")
 
                 // Selecionando o container e o body
                 var body = document.querySelector("body")
@@ -90,21 +136,21 @@
                 sobreUsuario.style.textUnderlineOffset = "0.5em"
                 barraNavegacao.appendChild(sobreUsuario)
                 // Criando div imagem
-                var divImagem = document.createElement("div")
-                divImagem.style.display = "flex"
-                divImagem.style.alignItems = "center"
-                divImagem.style.justifyContent = "center"
-                divImagem.style.width = "50%"
-                divImagem.style.height = "80%"
-                body.appendChild(divImagem)
-                // Adicionando imagem na divImagem
+                var divConteudoPrincipal = document.createElement("div")
+                divConteudoPrincipal.style.display = "flex"
+                divConteudoPrincipal.style.alignItems = "center"
+                divConteudoPrincipal.style.justifyContent = "center"
+                divConteudoPrincipal.style.width = "50%"
+                divConteudoPrincipal.style.height = "80%"
+                body.appendChild(divConteudoPrincipal)
+                // Adicionando imagem na divConteudoPrincipal
                 var img = document.createElement("img")
                 img.src = "https://assets.website-files.com/5d13ffc1234b422813468582/5e971a4cd85191ad6faf65ad_Group%2046%402x.png"
                 img.style.width = "100%"
                 img.style.height = "100%"
-                divImagem.appendChild(img)
+                divConteudoPrincipal.appendChild(img)
 
-                // Mudança de página
+                // Cria o botão para página inicial
                 var paginaInicialBtn = document.createElement("p")
                 paginaInicialBtn.id = "paginaInicialBtn"
                 paginaInicialBtn.innerText = "INÍCIO"
@@ -116,7 +162,11 @@
                 paginaInicialBtn.style.textDecorationColor = "rgb(67%, 78%, 99%)"
                 paginaInicialBtn.style.textUnderlineOffset = "0.5em"
 
+                // Abre a Página de Contato
                 function paginaContato() {
+                    console.log("Pagina Contato Aberta")
+
+                    divConteudoPrincipal.innerHTML = ""
                     infosContato.remove()
                     textoDoMeio.remove()
                     sobreUsuario.remove()
@@ -125,9 +175,92 @@
                     barraNavegacao.appendChild(textoDoMeio)
                     barraNavegacao.appendChild(sobreUsuario)
 
+                    // Estilizando a Página
+                    var divContato = document.createElement("div")
+                    var divNome = document.createElement("div")
+                    var divEmailTelefone = document.createElement("div")
+                    var divMensagem = document.createElement("div")
+                    var btnEnviar = document.createElement("button")
+
+                    divConteudoPrincipal.appendChild(divContato)
+                    divConteudoPrincipal.appendChild(divNome)
+                    divConteudoPrincipal.appendChild(divEmailTelefone)
+                    divConteudoPrincipal.appendChild(divMensagem)
+                    divConteudoPrincipal.appendChild(btnEnviar)
+
+                    // Estilizando divContato
+                    divContato.style.width = "50%"
+                    divContato.style.height = "15%"
+                    divContato.style.textAlign = "Center"
+                    divContato.style.fontFamily = "sans-serif"
+                    divContato.style.fontWeight = "bold"
+                    divContato.style.fontSize = "20px"
+                    divContato.innerHTML = "<h1 id=contate_me>Contate-me</h1>"
+                    
+                    // Estilizando divNome
+                    divNome.style.width = "50%"
+                    divNome.style.height = "15%"
+                    divNome.style.flexDirection = "row"
+                    divNome.style.display = "flex"
+                    divNome.style.alignItems = "center"
+                    divNome.style.justifyContent = "center"
+
+                    divNome.innerHTML = '<input type="text" id="primeiroNome" placeholder="Primeiro Nome"> <input type="text" id="sobreNome" placeholder="Sobrenome">'
+                    // Estilizando divEmailTelefone
+                    divEmailTelefone.style.width = "50%"
+                    divEmailTelefone.style.height = "15%"
+                    divEmailTelefone.style.flexDirection = "row"
+                    divEmailTelefone.style.display = "flex"
+                    divEmailTelefone.style.alignItems = "center"
+                    divEmailTelefone.style.justifyContent = "center"
+
+                    divEmailTelefone.innerHTML = '<input type="text" id="email" placeholder="Email"> <input type="text" id="telefone" placeholder="Telefone">'
+
+                    // Estilizando divMensagem
+                    divMensagem.style.width = "40%"
+                    divMensagem.style.height = "20%"
+                    divMensagem.innerHTML = '<input type="text" id="mensagem" placeholder="Mensagem">'
+
+                    // Estilizando btnEnviar
+                    btnEnviar.id = "btnEnviar"
+                    btnEnviar.style.width = "15%"
+                    btnEnviar.style.height = "8%"
+                    btnEnviar.innerText = "Enviar Mensagem"
+                    btnEnviar.type = "submit"
+
+                    // Estilizando divConteudoPrincipal
+                    divConteudoPrincipal.style.backgroundRepeat = "no-repeat"
+                    divConteudoPrincipal.style.borderRadius = "20px"
+                    divConteudoPrincipal.style.background = "linear-gradient(to bottom, #ABC8FD 40%, #000FFF 100%)"
+                    divConteudoPrincipal.style.flexDirection = "column"
+
+                    btnEnviar.addEventListener("click", function() {
+                        var primeiroNome = document.querySelector("#primeiroNome").value
+                        var sobreNome = document.querySelector("#sobreNome").value
+                        var email = document.querySelector("#email").value
+                        var telefone = document.querySelector("#telefone").value
+                        var mensagem = document.querySelector("#mensagem").value
+                        
+                        var contato = { nome: primeiroNome, sobrenome: sobreNome, e_mail: email, tel: telefone, msg: mensagem }
+                        Contatos.push(contato)
+                        console.log(Contatos)
+
+                        primeiroNome.value = ""
+                        sobreNome.value = ""
+                        email.value = ""
+                        telefone.value = ""
+                        mensagem.value = ""
+                    })
+
+                    // Volta para página inicial se apertar o paginaInicialBtn
                     paginaInicialBtn.addEventListener("click", paginaInicial)
                 }
+
+                // Abre a Página Sobre
                 sobreUsuario.addEventListener("click", function() {
+                    console.log("Pagina Sobre Aberta")
+
+                    divConteudoPrincipal.innerHTML = ""
                     infosContato.remove()
                     textoDoMeio.remove()
                     sobreUsuario.remove()
@@ -138,7 +271,58 @@
                     infosContato.style.paddingLeft = "5%"
                     barraNavegacao.appendChild(infosContato)
 
-                    paginaInicialBtn.addEventListener("click", paginaInicial)              ///// TROCAR O NOME DIV IMG PARA DIV CONTENT ALGO ASSIM REMOVER CONTEÚDO DELA OU REMOVER E ADICIONAR
+                    // Estilizando a Página
+                    var divImgSobre = document.createElement("div")
+                    var imgSobre = document.createElement("img")
+                    var divTextoSobre = document.createElement("div")
+                    var textoSobre = document.createElement("p")
+                    
+                    // Estilizando a divConteudoPrincipal
+                    divConteudoPrincipal.style.backgroundRepeat = "no-repeat"
+                    divConteudoPrincipal.style.borderRadius = "20px"
+                    divConteudoPrincipal.style.background = "linear-gradient(to bottom, #ABC8FD 40%, #000FFF 100%)"
+                    divConteudoPrincipal.style.flexDirection = "row"
+                    
+                    // Estilizando divTextoSobre
+                    divTextoSobre.style.width = "50%"
+                    divTextoSobre.style.height = "50%"
+                    divTextoSobre.style.marginRight = "3%"
+                    divTextoSobre.style.borderRadius = "10px"
+                    divTextoSobre.style.backgroundColor = "rgb(100%, 100%, 100%)"
+
+                    textoSobre.style.fontFamily = "sans-serif"
+                    textoSobre.style.fontWeight = "bold"
+                    textoSobre.style.fontSize = "25px"
+                    textoSobre.style.marginLeft = "5%"
+                    textoSobre.style.marginRight = "5%"
+                    textoSobre.style.color = "rgb(19%, 16%, 22%)"
+                    textoSobre.innerHTML = "Sou estudante de Engenharia de Software no IFSP"
+
+                    var textSobreMenor = document.createElement("p")
+                    textSobreMenor.innerText = "Minha jornada acadêmica é focada em aprender e crescer na área de desenvolvimento de software. Estou constantemente motivado a enfrentar desafios e buscar conhecimento. Além dos estudos, dedico tempo a projetos pessoais de programação e estou comprometido em evoluir profissionalmente na área de tecnologia."
+                    textSobreMenor.style.fontSize = "20px"
+                    textSobreMenor.style.marginTop = "50px"
+
+                    textoSobre.appendChild(textSobreMenor)
+
+                    divTextoSobre.appendChild(textoSobre)
+                    
+                    divConteudoPrincipal.appendChild(divTextoSobre)
+
+                    // Estilizando divImgSobre
+                    imgSobre.src = "https://image.freepik.com/free-vector/programmer-job-character-with-laptop-development-application-with-coding-process_40876-1610.jpg"
+                    imgSobre.style.width = "100%"
+                    imgSobre.style.height = "100%"
+                    imgSobre.style.borderRadius = "10px"
+
+                    divImgSobre.append(imgSobre)
+                    divImgSobre.style.width = "35%"
+                    divImgSobre.style.height = "40%"
+
+                    divConteudoPrincipal.appendChild(divImgSobre)
+
+                    // Volta para página inicial se apertar o paginaInicialBtn
+                    paginaInicialBtn.addEventListener("click", paginaInicial)
                 })
             }
         </script>
