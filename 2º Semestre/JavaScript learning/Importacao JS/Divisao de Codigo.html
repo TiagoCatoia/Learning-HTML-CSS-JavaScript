@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Importando JS</title>
+</head>
+<body>
+    <script type="module">
+        /* HTML
+        <head>
+            <script src="myExternFile.js"><script>
+        <head>
+            <body>
+                <script>console.log(myFunction("some text"))<script>
+            </body>
+        */
+
+    /*o type="module" informa ao navegador que o arquivo JS é um módulo, ou seja,
+    continua sendo um script, mas que pode importar e exportar partes de código.
+    Em outras palavras, seu script poderá importar outros arquivos JS (não necessariamente desenvolvidos por você).
+    Essa importação/exportação e todo processo por trás disso fica a cargo do navegador.
+    */
+        //import {a, b} from "./log.js"
+        //console.log(`a=${a} e b=${b}`)
+
+        // import para ambientes que não tem suporte: Transpilação compilar no mesmo nível (BABEL código js novo -> converte p/ versão antiga)
+        // existe também nomodules
+
+        import {a as alpha, b as beta} from "./log.js"
+        console.log(`a=${alpha} e b=${beta}`)
+        let a = 22
+        console.log(a)
+
+        import msg, {AUTOR} from "./padrao.js" // Deve ter apenas 1 padrão (quem foi exportado por default)
+        // Oque está fora do operador de desistruturação {AUTOR} é o default
+        console.log(`${msg.ola} ${AUTOR}`)
+    </script>
+</body>
+</html>
